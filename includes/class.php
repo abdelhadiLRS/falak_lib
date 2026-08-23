@@ -1464,7 +1464,13 @@ class QuranForAll extends QuranForAll_API {
 
 		$data = array('quran' => $quran, 'tafseer' => $tafseer, 'language' => $language);
 
-		$code = '<div class="home-sections">';
+		$hero_path = $this->path . '/style/default/hero.htm';
+		$hero_html = '';
+		if( file_exists($hero_path) ){
+			$hero_html = str_replace('{site_url}', $this->siteurl, file_get_contents($hero_path));
+		}
+
+		$code = $hero_html . '<div class="home-sections">';
 		if( is_array($this->home_sort) && count($this->home_sort) > 0 ){
 			foreach( $this->home_sort as $key => $value ){
 				if( array_key_exists($value, $data) ){

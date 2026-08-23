@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{lang}">
+<html lang="{lang}" dir="rtl" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,21 +7,38 @@
     <title>{title}</title>
     {seo}
     <link rel="shortcut icon" type="image/x-icon" href="{style}/favicon.ico">
+    <link rel="stylesheet" href="{style}/css/falak-tokens.css">
+    <script type="text/javascript" src="{style}/js/falak-theme.js"></script>
+    <script type="text/javascript" src="{style}/js/audio-player.js"></script>
+    <script type="text/javascript" src="{style}/js/command-palette.js"></script>
+    <script type="text/javascript" src="{style}/js/bookmarks.js"></script>
+    <script type="text/javascript" src="{style}/js/memorization.js"></script>
+    <script type="text/javascript" src="{style}/js/adhkar.js"></script>
+    <script type="text/javascript" src="{style}/js/dashboard.js"></script>
     <script type="text/javascript" src="{style}/js/quran.js"></script>
     {js}
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top custom-nav">
+    <nav class="navbar navbar-expand-lg sticky-top custom-nav">
       <div class="container">
-        <a class="navbar-brand custom-navbar-brand" href="{site_url}">LANG[site_name]</a>
+        <a class="navbar-brand custom-navbar-brand" href="{site_url}">
+          <span style="font-size: 1.6rem; color: var(--falak-primary);">فَلَك</span>
+          <span class="badge bg-success ms-2 style-sub-badge" style="font-size: 0.7rem; font-weight: normal;">Falak</span>
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto align-items-center">
             {nav}
+            <li class="nav-item ms-lg-3 my-2 my-lg-0">
+              <button class="theme-toggle-btn" onclick="window.Falak.toggleTheme()" title="تبديل المظهر">
+                <span id="theme-icon">🌙</span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>

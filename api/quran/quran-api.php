@@ -1386,7 +1386,8 @@ class QuranForAll_API {
 		$path = $this->addRootPath( $root );
 		$filename = $path.'includes/uthmani/'.$surah_id.'.php';//quran-uthmani, uthmani, quran
 		if( file_exists($filename) ){
-			require_once( $filename );
+			$q = array();
+			require( $filename );
 			$QURAN = $q;
 		}
 
