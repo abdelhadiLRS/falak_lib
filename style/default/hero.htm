@@ -1,0 +1,102 @@
+<!-- FALAK HERO & QUICK ACCESS COMPONENT -->
+<div class="falak-hero my-4 p-4 p-md-5 rounded-4 text-center" style="background: linear-gradient(135deg, var(--falak-primary-dark), var(--falak-primary)); color: #ffffff;">
+  <h1 class="display-5 fw-bold mb-3">فَلَك — رفيقك في القرآن والعلوم الإسلامية</h1>
+  <p class="lead mb-4 text-light opacity-90">منصة إسلامية حديثة، خفيفة، وشاملة لقراءة القرآن الكريم والتفسير والعلوم الشرعية.</p>
+
+  <!-- Central Search Input Trigger -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden" onclick="window.FalakSearch && window.FalakSearch.openCommandPalette()" style="cursor: pointer;">
+        <span class="input-group-text bg-white border-0 text-muted fs-5"><i class="fas fa-search"></i> 🔍</span>
+        <input type="text" class="form-style-input form-control border-0 bg-white fs-6 py-3" placeholder="ابحث عن سورة، آية، كلمة، تفسير... (Ctrl + K)" readonly style="cursor: pointer;">
+        <span class="input-group-text bg-white border-0 text-muted small"><kbd class="bg-light text-dark border">Ctrl K</kbd></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTINUE READING CARD & DAILY CONTENT -->
+<div class="row mb-4 g-3" id="falak-dashboard-widget">
+  <div class="col-12 col-md-6">
+    <div class="falak-card h-100 d-flex flex-column justify-content-between">
+      <div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="badge bg-success bg-opacity-10 text-success fw-bold px-2 py-1">📖 أكمل قراءتك</span>
+          <small class="text-muted" id="last-read-time">مؤخراً</small>
+        </div>
+        <h5 class="fw-bold mb-1" id="last-read-surah">سورة الفاتحة</h5>
+        <p class="text-muted small mb-3" id="last-read-ayah">الآية 1 — الصفحة 1</p>
+      </div>
+      <div>
+        <a href="#" id="last-read-link" class="btn btn-falak-primary w-100 text-center text-white text-decoration-none">متابعة القراءة ←</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="falak-card h-100">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="badge bg-warning bg-opacity-10 text-warning fw-bold px-2 py-1">✨ آية اليوم</span>
+        <small class="text-muted">تأمل هداية</small>
+      </div>
+      <blockquote class="quran-ayah-text fs-5 mb-2 text-center" style="color: var(--falak-primary);">
+        ﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾
+      </blockquote>
+      <p class="text-center text-muted small mb-0">[سورة الفاتحة: 2]</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK ACCESS GRID -->
+<div class="mb-4">
+  <h4 class="fw-bold mb-3" style="color: var(--falak-primary);">⚡ الوصول السريع</h4>
+  <div class="row g-3">
+    <div class="col-6 col-md-3">
+      <a href="#quran" class="text-decoration-none">
+        <div class="falak-card text-center p-3">
+          <div class="fs-2 mb-2">📖</div>
+          <h6 class="fw-bold text-dark mb-1">القرآن الكريم</h6>
+          <small class="text-muted">114 سورة كاملة</small>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-md-3">
+      <a href="#tafseer" class="text-decoration-none">
+        <div class="falak-card text-center p-3">
+          <div class="fs-2 mb-2">📚</div>
+          <h6 class="fw-bold text-dark mb-1">التفسير</h6>
+          <small class="text-muted">ابن كثير، الميسر، الجلالين</small>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-md-3">
+      <a href="#languages" class="text-decoration-none">
+        <div class="falak-card text-center p-3">
+          <div class="fs-2 mb-2">🌐</div>
+          <h6 class="fw-bold text-dark mb-1">التراجم</h6>
+          <small class="text-muted">42 لغة عالمية</small>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-md-3">
+      <a href="{site_url}/index.php?action=books" class="text-decoration-none">
+        <div class="falak-card text-center p-3">
+          <div class="fs-2 mb-2">📗</div>
+          <h6 class="fw-bold text-dark mb-1">المكتبة الإسلامية</h6>
+          <small class="text-muted">كتب وبحوث متنوعة</small>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var lastRead = JSON.parse(localStorage.getItem('falak_last_read') || 'null');
+    if (lastRead) {
+      document.getElementById('last-read-surah').textContent = lastRead.surahName || ('سورة رقم ' + lastRead.surah);
+      document.getElementById('last-read-ayah').textContent = 'الآية ' + (lastRead.ayah || 1);
+      document.getElementById('last-read-link').href = lastRead.url || '#';
+    }
+  })();
+</script>

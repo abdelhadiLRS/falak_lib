@@ -1,0 +1,175 @@
+/* ==========================================================================
+   FALAK DESIGN SYSTEM TOKENS & MODERN THEMING
+   ========================================================================== */
+
+:root {
+  /* Brand Palette - Deep Spiritual Emerald & Gold Accents */
+  --falak-primary: #0f5132;
+  --falak-primary-light: #198754;
+  --falak-primary-dark: #0a3622;
+  --falak-accent: #d4af37;
+  --falak-accent-hover: #b89628;
+
+  /* Neutral Palette - Light Theme */
+  --falak-bg: #f8f9fa;
+  --falak-surface: #ffffff;
+  --falak-surface-alt: #f1f3f5;
+  --falak-card-bg: #ffffff;
+  --falak-text: #212529;
+  --falak-text-muted: #6c757d;
+  --falak-border: #e9ecef;
+  --falak-border-hover: #ced4da;
+
+  /* Typography */
+  --falak-font-sans: 'Traditional Arabic', 'Amiri', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --falak-font-quran: 'KFGQPC Uthman Taha Naskh', 'Amiri', 'Traditional Arabic', serif;
+
+  /* Shadows & Radius */
+  --falak-radius-sm: 8px;
+  --falak-radius-md: 12px;
+  --falak-radius-lg: 16px;
+  --falak-radius-full: 9999px;
+  --falak-shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+  --falak-shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --falak-shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  /* Transitions */
+  --falak-transition: all 0.25s ease-in-out;
+}
+
+/* Dark Mode Tokens Override */
+[data-theme="dark"] {
+  --falak-primary: #198754;
+  --falak-primary-light: #20c997;
+  --falak-primary-dark: #0f5132;
+  --falak-accent: #e5c158;
+  --falak-accent-hover: #f3d478;
+
+  --falak-bg: #121417;
+  --falak-surface: #1e2229;
+  --falak-surface-alt: #282d37;
+  --falak-card-bg: #1e2229;
+  --falak-text: #e9ecef;
+  --falak-text-muted: #adb5bd;
+  --falak-border: #2d333f;
+  --falak-border-hover: #3d4554;
+
+  --falak-shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+  --falak-shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --falak-shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* Global Applied System Rules */
+body {
+  background-color: var(--falak-bg) !important;
+  color: var(--falak-text) !important;
+  font-family: var(--falak-font-sans);
+  direction: rtl;
+  text-align: right;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Base Card Styling */
+.falak-card {
+  background-color: var(--falak-card-bg);
+  border: 1px solid var(--falak-border);
+  border-radius: var(--falak-radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--falak-shadow-sm);
+  transition: var(--falak-transition);
+}
+
+.falak-card:hover {
+  border-color: var(--falak-border-hover);
+  box-shadow: var(--falak-shadow-md);
+}
+
+/* Navbar Custom Overrides */
+.custom-nav {
+  background-color: var(--falak-surface) !important;
+  border-bottom: 1px solid var(--falak-border);
+  box-shadow: var(--falak-shadow-sm);
+}
+
+.custom-nav .nav-link {
+  color: var(--falak-text) !important;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem !important;
+  border-radius: var(--falak-radius-sm);
+  transition: var(--falak-transition);
+}
+
+.custom-nav .nav-link:hover,
+.custom-nav .nav-link.active {
+  color: var(--falak-primary-light) !important;
+  background-color: var(--falak-surface-alt);
+}
+
+.custom-navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--falak-primary) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn-falak-primary {
+  background-color: var(--falak-primary);
+  color: #ffffff !important;
+  border: none;
+  border-radius: var(--falak-radius-sm);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: var(--falak-transition);
+}
+
+.btn-falak-primary:hover {
+  background-color: var(--falak-primary-light);
+}
+
+.btn-falak-outline {
+  background-color: transparent;
+  color: var(--falak-primary) !important;
+  border: 1px solid var(--falak-primary);
+  border-radius: var(--falak-radius-sm);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: var(--falak-transition);
+}
+
+.btn-falak-outline:hover {
+  background-color: var(--falak-primary);
+  color: #ffffff !important;
+}
+
+/* Quranic Ayah Text Styling */
+.quran-ayah-text {
+  font-family: var(--falak-font-quran);
+  font-size: 1.8rem;
+  line-height: 2.4;
+  color: var(--falak-text);
+  word-spacing: 2px;
+}
+
+/* Theme Switcher Toggle Button */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--falak-border);
+  color: var(--falak-text);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--falak-radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--falak-transition);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--falak-surface-alt);
+}
