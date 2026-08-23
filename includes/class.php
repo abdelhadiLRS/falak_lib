@@ -965,11 +965,13 @@ class QuranForAll extends QuranForAll_API {
 
 	public function get_navbar(){
 		$code = '';
-		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#quran">'.word('quran').'</a></li>';
-		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#tafseer">'.word('tfaseer').'</a></li>';
-		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#languages">'.word('languages').'</a></li>';
-		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->url( array( 'action' => 'books') ).'">'.word('books').'</a></li>';
-		$code .= '';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#quran"><i class="fas fa-quran ms-1"></i> '.word('quran').'</a></li>';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#tafseer"><i class="fas fa-book-open ms-1"></i> '.word('tfaseer').'</a></li>';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->url( array( 'action' => 'books') ).'"><i class="fas fa-book ms-1"></i> '.word('books').'</a></li>';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#adhkar"><i class="fas fa-pray ms-1"></i> الأذكار</a></li>';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#seerah"><i class="fas fa-monument ms-1"></i> السيرة</a></li>';
+		$code .= '<li class="nav-item"><a class="nav-link" href="'.$this->siteurl.'/#hadith"><i class="fas fa-scroll ms-1"></i> الحديث</a></li>';
+		$code .= '<li class="nav-item ms-lg-2"><button type="button" class="btn btn-sm btn-falak-outline rounded-pill px-3 py-1" onclick="if(window.FalakSearch) window.FalakSearch.open()"><i class="fas fa-search me-1"></i> بحث (Ctrl+K)</button></li>';
 
 		/*
 		$navbar_links = array('en', 'fr', 'de', 'es', 'pt', 'ru', 'zh', 'ko', 'id');

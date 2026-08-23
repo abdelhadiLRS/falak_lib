@@ -5,17 +5,26 @@
 :root {
   /* Brand Palette - Deep Spiritual Emerald & Gold Accents */
   --falak-primary: #0f5132;
+  --falak-secondary: #198754;
   --falak-primary-light: #198754;
   --falak-primary-dark: #0a3622;
   --falak-accent: #d4af37;
   --falak-accent-hover: #b89628;
 
+  /* Status Colors */
+  --falak-success: #198754;
+  --falak-warning: #ffc107;
+  --falak-danger: #dc3545;
+  --falak-info: #0dcaf0;
+
   /* Neutral Palette - Light Theme */
   --falak-bg: #f8f9fa;
+  --falak-background: #f8f9fa;
   --falak-surface: #ffffff;
   --falak-surface-alt: #f1f3f5;
   --falak-card-bg: #ffffff;
   --falak-text: #212529;
+  --falak-muted: #6c757d;
   --falak-text-muted: #6c757d;
   --falak-border: #e9ecef;
   --falak-border-hover: #ced4da;
@@ -25,10 +34,12 @@
   --falak-font-quran: 'KFGQPC Uthman Taha Naskh', 'Amiri', 'Traditional Arabic', serif;
 
   /* Shadows & Radius */
+  --falak-radius: 12px;
   --falak-radius-sm: 8px;
   --falak-radius-md: 12px;
   --falak-radius-lg: 16px;
   --falak-radius-full: 9999px;
+  --falak-shadow: 0 4px 12px rgba(0,0,0,0.08);
   --falak-shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
   --falak-shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --falak-shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
@@ -40,20 +51,24 @@
 /* Dark Mode Tokens Override */
 [data-theme="dark"] {
   --falak-primary: #198754;
+  --falak-secondary: #20c997;
   --falak-primary-light: #20c997;
   --falak-primary-dark: #0f5132;
   --falak-accent: #e5c158;
   --falak-accent-hover: #f3d478;
 
   --falak-bg: #121417;
+  --falak-background: #121417;
   --falak-surface: #1e2229;
   --falak-surface-alt: #282d37;
   --falak-card-bg: #1e2229;
   --falak-text: #e9ecef;
+  --falak-muted: #adb5bd;
   --falak-text-muted: #adb5bd;
   --falak-border: #2d333f;
   --falak-border-hover: #3d4554;
 
+  --falak-shadow: 0 4px 12px rgba(0,0,0,0.4);
   --falak-shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --falak-shadow-md: 0 4px 12px rgba(0,0,0,0.4);
   --falak-shadow-lg: 0 8px 24px rgba(0,0,0,0.5);

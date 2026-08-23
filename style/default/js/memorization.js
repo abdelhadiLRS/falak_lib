@@ -9,7 +9,31 @@
 
     getProgress: function() {
       var data = localStorage.getItem(this.KEY);
-      return data ? JSON.parse(data) : { memorizedSurahs: [], dailyGoal: 10, reviewedToday: 0 };
+      return data ? JSON.parse(data) : {
+        memorizedSurahs: [],
+        ayahLevels: {},
+        dailyGoalAyat: 10,
+        reviewedToday: 0,
+        streak: 1,
+        lastReviewDate: new Date().toISOString().split('T')[0]
+      };
+    },
+
+    saveProgress: function(prog) {
+      localStorage.setItem(this.KEY, JSON.stringify(prog));
+      if (window.FalakStorage) {
+        localStorage.setItem(window.FalakStorage.NAMESPACES.MEMORIZATION, JSON.stringify(prog));
+      }
+    },
+
+    setAyahLevel: function(surahId, ayahNum, level) {
+      var prog = this.getProgress();
+      var key = surahId + ':' + ayahNum;
+      prog.ayahLevels[key] = {
+        level: level, // 1: Weak, 2: Good, 3: Excellent
+        lastReviewed: new Date().toISOString()
+      };
+      this.saveProgress(prog);
     },
 
     toggleSurahMemorized: function(surahId) {
@@ -20,7 +44,7 @@
       } else {
         prog.memorizedSurahs.push(surahId);
       }
-      localStorage.setItem(this.KEY, JSON.stringify(prog));
+      this.saveProgress(prog);
       return idx === -1;
     },
 
