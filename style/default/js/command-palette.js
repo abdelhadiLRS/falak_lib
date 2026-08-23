@@ -96,6 +96,10 @@
       document.body.insertAdjacentHTML('beforeend', modalHTML);
     },
 
+    open: function() {
+      this.openCommandPalette();
+    },
+
     openCommandPalette: function() {
       var modalElem = document.getElementById('falak-command-palette-modal');
       if (!modalElem || typeof bootstrap === 'undefined') return;
