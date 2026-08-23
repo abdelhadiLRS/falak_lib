@@ -1,6 +1,11 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
+define('PATH', getcwd());
+define('INC_PATH', PATH.'/includes');
+
+require_once(INC_PATH.'/config.php');
+
 if (defined('IS_PRODUCTION') && IS_PRODUCTION === true) {
 	ini_set('display_errors', 0);
 	ini_set('display_startup_errors', 0);
@@ -10,11 +15,6 @@ if (defined('IS_PRODUCTION') && IS_PRODUCTION === true) {
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 }
-
-define('PATH', getcwd());
-define('INC_PATH', PATH.'/includes');
-
-require_once(INC_PATH.'/config.php');
 require_once(INC_PATH.'/MobileDetect.php');
 require_once(PATH.'/api/quran/quran-api.php');
 require_once(PATH.'/api/books/book-api.php');

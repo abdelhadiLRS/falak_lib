@@ -5,7 +5,7 @@ const ASSETS_TO_CACHE = [
   './',
   './index.php',
   './style/default/css/falak-tokens.css',
-  './style/default/css/style.css',
+  './style/default/style.css',
   './style/default/js/falak-theme.js',
   './style/default/js/audio-player.js',
   './style/default/js/command-palette.js',
