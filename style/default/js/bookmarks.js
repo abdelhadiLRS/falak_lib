@@ -61,13 +61,14 @@
 
     toggleBookmark: function(data) {
       var bookmarks = this.getBookmarks();
-      var key = typeof data === 'object' ? (data.surah + ':' + data.ayah) : arguments[0] + ':' + arguments[1];
+      var isObj = data && typeof data === 'object';
+      var key = isObj ? (data.surah + ':' + data.ayah) : arguments[0] + ':' + arguments[1];
       var index = bookmarks.findIndex(function(b) { return b.key === key; });
 
       if (index > -1) {
         bookmarks.splice(index, 1);
       } else {
-        var item = typeof data === 'object' ? data : { surah: arguments[0], ayah: arguments[1] };
+        var item = isObj ? data : { surah: arguments[0], ayah: arguments[1] };
         item.key = key;
         item.timestamp = item.timestamp || new Date().toISOString();
         bookmarks.push(item);

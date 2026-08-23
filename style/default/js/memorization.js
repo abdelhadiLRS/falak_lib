@@ -8,7 +8,28 @@
     KEY: 'falak_memorization_progress',
 
     getProgress: function() {
-      var data = localStorage.getItem(this.KEY);
+      var newNs = window.FalakStorage ? window.FalakStorage.NAMESPACES.MEMORIZATION : 'falak.memorization';
+      var data = localStorage.getItem(newNs);
+
+      if (!data) {
+        // Migration from legacy key 'falak_memorization_progress'
+        var oldData = localStorage.getItem(this.KEY);
+        if (oldData) {
+          try {
+            var parsedOld = JSON.parse(oldData);
+            data = JSON.stringify(Object.assign({
+              memorizedSurahs: [],
+              ayahLevels: {},
+              dailyGoalAyat: 10,
+              reviewedToday: 0,
+              streak: 1,
+              lastReviewDate: new Date().toISOString().split('T')[0]
+            }, parsedOld));
+            localStorage.setItem(newNs, data);
+          } catch(e) {}
+        }
+      }
+
       return data ? JSON.parse(data) : {
         memorizedSurahs: [],
         ayahLevels: {},
@@ -20,10 +41,11 @@
     },
 
     saveProgress: function(prog) {
+      // Save to legacy key to preserve old data
       localStorage.setItem(this.KEY, JSON.stringify(prog));
-      if (window.FalakStorage) {
-        localStorage.setItem(window.FalakStorage.NAMESPACES.MEMORIZATION, JSON.stringify(prog));
-      }
+      // Save to new unified namespace
+      var newNs = window.FalakStorage ? window.FalakStorage.NAMESPACES.MEMORIZATION : 'falak.memorization';
+      localStorage.setItem(newNs, JSON.stringify(prog));
     },
 
     setAyahLevel: function(surahId, ayahNum, level) {

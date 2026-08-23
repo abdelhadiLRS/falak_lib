@@ -1,4 +1,5 @@
 <?php
+define('IS_PRODUCTION', true);
 define('SITE_NAME', '');
 define('SITE_DESCRIPTION', '');
 define('THEME', 'style/default');
