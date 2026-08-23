@@ -84,13 +84,14 @@
 
     toggleFavorite: function(data) {
       var favorites = this.getFavorites();
-      var key = typeof data === 'object' ? (data.surah + ':' + data.ayah) : arguments[0] + ':' + arguments[1];
+      var isObj = data && typeof data === 'object';
+      var key = isObj ? (data.surah + ':' + data.ayah) : arguments[0] + ':' + arguments[1];
       var index = favorites.findIndex(function(f) { return f.key === key; });
 
       if (index > -1) {
         favorites.splice(index, 1);
       } else {
-        var item = typeof data === 'object' ? data : { surah: arguments[0], ayah: arguments[1] };
+        var item = isObj ? data : { surah: arguments[0], ayah: arguments[1] };
         item.key = key;
         item.timestamp = item.timestamp || new Date().toISOString();
         favorites.push(item);
